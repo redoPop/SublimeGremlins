@@ -31,7 +31,7 @@ SPACEY_GREMLINS = str.join('', [
 ALL_GREMLINS = (SPACELESS_GREMLINS + SPACEY_GREMLINS)
 ALL_GREMLINS_RE = re.compile('^[' + ALL_GREMLINS + ']$')
 
-GUTTER_ICON = 'Packages/SublimeGremlins/gremlin.png'
+GUTTER_ICON = 'Packages/Gremlins/gremlin.png'
 REGIONS_KEY = 'gremlins-highlights'
 STATUS_KEY = 'gremlins-info'
 
