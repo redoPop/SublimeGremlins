@@ -1,0 +1,15 @@
+[
+	// Find and select all gremlins in the current view
+	{ "keys": ["ctrl+alt+a"], "command": "gremlins_find_all" },
+
+	// Find and select the next gremlin in the current view
+	{ "keys": ["ctrl+alt+g"], "command": "gremlins_find_next" },
+
+	// Highlight all the gremlins in the current view
+	// (Note: by default this happens automatically as you type)
+	{ "keys": ["ctrl+alt+h"], "command": "gremlins_highlight_all" },
+
+	// Show the Unicode name of the current character
+	// in the status bar */
+	{ "keys": ["ctrl+alt+c"], "command": "gremlins_name_current" }
+]
