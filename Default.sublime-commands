@@ -1,0 +1,18 @@
+[
+	{
+		"caption": "Gremlins: Find All",
+		"command": "gremlins_find_all"
+	},
+	{
+		"caption": "Gremlins: Find Next",
+		"command": "gremlins_find_next"
+	},
+	{
+		"caption": "Gremlins: Highlight All",
+		"command": "gremlins_highlight_all"
+	},
+	{
+		"caption": "Gremlins: Name Current Character",
+		"command": "gremlins_name_current"
+	}
+]

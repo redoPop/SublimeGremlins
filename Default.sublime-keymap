@@ -1,0 +1,21 @@
+/*
+By default Sublime Gremlins leaves all key bindings disabled.
+Please use this document as a reference and copy the commented-out
+key bindings you're using into your custom user key bindings,
+customizing the keys as you see fit.
+*/
+[
+	/* Find and select all gremlins in the current view */
+	// { "keys": ["ctrl+alt+a"], "command": "gremlins_find_all" }
+
+	/* Find and select the next gremlin in the current view */
+	// { "keys": ["ctrl+alt+g"], "command": "gremlins_find_next" }
+
+	/* Highlight all the gremlins in the current view
+	   (Note: by default this happens automatically as you type) */
+	// { "keys": ["ctrl+alt+h"], "command": "gremlins_highlight_all" }
+
+	/* Show the Unicode name of the current character
+	   in the status bar */
+	// { "keys": ["ctrl+alt+c"], "command": "gremlins_name_current" }
+]

@@ -1,0 +1,44 @@
+[
+	{
+		"id": "find",
+		"children": [
+			{
+				"caption": "-"
+			},
+			{
+				"caption": "Find Next Gremlin",
+				"command": "gremlins_find_next"
+			},
+			{
+				"caption": "Find All Gremlins",
+				"command": "gremlins_find_all"
+			}
+		]
+	},
+
+	{
+		"id": "preferences",
+		"children": [
+			{
+				"id": "package-settings",
+				"children": [
+					{
+						"caption": "Gremlins",
+						"children": [
+							{
+								"caption": "Key Bindings – Default",
+								"command": "open_file",
+								"args": { "file": "${packages}/SublimeGremlins/Default.sublime-keymap" }
+							},
+							{
+								"caption": "Key Bindings – User",
+								"command": "open_file",
+								"args": { "file": "${packages}/User/Default.sublime-keymap" }
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+]
