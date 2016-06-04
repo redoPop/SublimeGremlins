@@ -27,8 +27,8 @@
 						"children": [
 							{
 								"caption": "Example Key Bindings",
-								"command": "open_file",
-								"args": { "file": "${packages}/Gremlins/Example.sublime-keymap" }
+								"command": "gremlins_open_file",
+								"args": { "file": "Example.sublime-keymap" }
 							},
 							{
 								"caption": "Key Bindings – User",
