@@ -33,7 +33,17 @@
 							{
 								"caption": "Key Bindings – User",
 								"command": "open_file",
-								"args": { "file": "${packages}/User/Default.sublime-keymap" }
+								"args": { "platform": "Linux", "file": "${packages}/User/Default (Linux).sublime-keymap" }
+							},
+							{
+								"caption": "Key Bindings – User",
+								"command": "open_file",
+								"args": { "platform": "OSX", "file": "${packages}/User/Default (OSX).sublime-keymap" }
+							},
+							{
+								"caption": "Key Bindings – User",
+								"command": "open_file",
+								"args": { "platform": "Windows", "file": "${packages}/User/Default (Windows).sublime-keymap" }
 							}
 						]
 					}
