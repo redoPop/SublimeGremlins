@@ -32,8 +32,8 @@ SPACEY_GREMLINS = str.join('', [
 ALL_GREMLINS = (SPACELESS_GREMLINS + SPACEY_GREMLINS)
 ALL_GREMLINS_RE = re.compile('^[' + ALL_GREMLINS + ']$')
 
-PACKAGE_DIR = os.path.dirname(__file__)
-GUTTER_ICON = 'icons/white.png'
+PACKAGE_DIR = os.path.splitext(os.path.basename(os.path.dirname(__file__)))[0]
+GUTTER_ICON = os.path.join('Packages', PACKAGE_DIR, 'icons', 'white.png')
 REGIONS_KEY = 'gremlins-highlights'
 STATUS_KEY = 'gremlins-info'
 
@@ -47,13 +47,6 @@ def cursor_position(view):
 
 def char_at_cursor(view):
 	return view.substr(cursor_position(view))
-
-def package_file(filename):
-	sublime_dir = os.path.dirname(sublime.packages_path())
-	return os.path.join(
-		os.path.relpath(PACKAGE_DIR, sublime_dir),
-		*filename.split('/')
-	)
 
 '''
 ---------------------------------------------------------------------
@@ -103,7 +96,7 @@ class GremlinsHighlightAllCommand(GremlinsBaseFindCommand):
 			REGIONS_KEY,
 			self.find_all_gremlins(),
 			'invalid',
-			package_file(GUTTER_ICON),
+			GUTTER_ICON,
 			sublime.DRAW_NO_FILL
 		)
 
@@ -138,9 +131,8 @@ class GremlinsNameCurrentCommand(sublime_plugin.TextCommand):
 # Open a file relative to the Gremlins package directory
 class GremlinsOpenFile(sublime_plugin.ApplicationCommand):
 	def run(self, **args):
-		sublime.active_window().open_file(
-			os.path.join(PACKAGE_DIR, *args.get('file').split('/'))
-		)
+		args['file'] = '${packages}/' + PACKAGE_DIR + '/' + args.get('file')
+		sublime.active_window().run_command('open_file', args)
 
 '''
 ---------------------------------------------------------------------
