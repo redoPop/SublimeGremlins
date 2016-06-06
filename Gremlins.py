@@ -34,6 +34,7 @@ ALL_GREMLINS_RE = re.compile('^[' + ALL_GREMLINS + ']$')
 
 PACKAGE_DIR = os.path.splitext(os.path.basename(os.path.dirname(__file__)))[0]
 GUTTER_ICON = os.path.join('Packages', PACKAGE_DIR, 'icons', 'white.png')
+MAX_DOC_SIZE = 1048576
 REGIONS_KEY = 'gremlins-highlights'
 STATUS_KEY = 'gremlins-info'
 
@@ -142,7 +143,8 @@ Listeners
 # Highlight all the gremlins in the current view.
 class GremlinsHighlighterListener(sublime_plugin.EventListener):
 	def highight_all_gremlins(self, view):
-		view.run_command('gremlins_highlight_all')
+		if view.size() <= MAX_DOC_SIZE:
+			view.run_command('gremlins_highlight_all')
 
 	def on_activated_async(self, view):
 		self.highight_all_gremlins(view)
