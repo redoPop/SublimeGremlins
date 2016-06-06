@@ -142,21 +142,21 @@ Listeners
 
 # Highlight all the gremlins in the current view.
 class GremlinsHighlighterListener(sublime_plugin.EventListener):
-	def highight_all_gremlins(self, view):
+	def highlight_all_gremlins(self, view):
 		if view.size() <= MAX_DOC_SIZE:
 			view.run_command('gremlins_highlight_all')
 
 	def on_activated_async(self, view):
-		self.highight_all_gremlins(view)
+		self.highlight_all_gremlins(view)
 
 	def on_clone_async(self, view):
-		self.highight_all_gremlins(view)
+		self.highlight_all_gremlins(view)
 
 	def on_load_async(self, view):
-		self.highight_all_gremlins(view)
+		self.highlight_all_gremlins(view)
 
 	def on_modified_async(self, view):
-		self.highight_all_gremlins(view)
+		self.highlight_all_gremlins(view)
 
 # Use the status bar to display the name of the gremlin
 # currently under the user's cursor.
