@@ -16,6 +16,7 @@ SPACELESS_GREMLINS = str.join('', [
 	'\u2028-\u202E',
 	'\u2060-\u206F',
 	'\u3164',
+	'\uFE00-\uFE0F',
 	'\uFEFF',
 ])
 
