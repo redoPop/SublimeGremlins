@@ -34,7 +34,7 @@ ALL_GREMLINS = (SPACELESS_GREMLINS + SPACEY_GREMLINS)
 ALL_GREMLINS_RE = re.compile('^[' + ALL_GREMLINS + ']$')
 
 PACKAGE_DIR = os.path.splitext(os.path.basename(os.path.dirname(__file__)))[0]
-GUTTER_ICON = os.path.join('Packages', PACKAGE_DIR, 'icons', 'white.png')
+GUTTER_ICON = 'Packages/' + PACKAGE_DIR + '/icons/white.png'
 MAX_DOC_SIZE = 1048576
 REGIONS_KEY = 'gremlins-highlights'
 STATUS_KEY = 'gremlins-info'
