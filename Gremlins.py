@@ -12,6 +12,7 @@ Globals
 # Zero-width characters
 SPACELESS_GREMLINS = str.join('', [
 	'\u007F-\u009F',
+	'\u00AD',
 	'\u200B-\u200F',
 	'\u2028-\u202E',
 	'\u2060-\u206F',
