@@ -105,19 +105,20 @@ class GremlinsHighlightAllCommand(GremlinsBaseFindCommand):
 
 # Use the status bar to show the name of whichever character
 # is currently under the user's cursor.
-class GremlinsNameCurrentCommand(sublime_plugin.TextCommand):
+class GremlinsNameCurrentCommand(sublime_plugin.WindowCommand):
 	last_named_position = None
 
-	def run(self, edit, **args):
-		position = cursor_position(self.view)
-		char = char_at_cursor(self.view)
+	def run(self, **args):
+		view = self.window.active_view()
+		position = cursor_position(view)
+		char = char_at_cursor(view)
 		message = ''
 
 		if ALL_GREMLINS_RE.match(char):
 			message += '\U0001f440 '
 		elif args.get('clearStatusIfNotGremlin'):
 			if position != self.last_named_position:
-				self.view.erase_status(STATUS_KEY)
+				view.erase_status(STATUS_KEY)
 			return
 
 		message += u'U+{:04X}'.format(ord(char))
@@ -129,7 +130,7 @@ class GremlinsNameCurrentCommand(sublime_plugin.TextCommand):
 			pass
 
 		self.last_named_position = position
-		self.view.set_status(STATUS_KEY, message)
+		view.set_status(STATUS_KEY, message)
 
 # Open a file relative to the Gremlins package directory
 class GremlinsOpenFile(sublime_plugin.ApplicationCommand):
@@ -164,7 +165,7 @@ class GremlinsHighlighterListener(sublime_plugin.EventListener):
 # currently under the user's cursor.
 class GremlinsNamerListener(sublime_plugin.EventListener):
 	def name_current_gremlin(self, view):
-		view.run_command('gremlins_name_current', {
+		view.window().run_command('gremlins_name_current', {
 			"clearStatusIfNotGremlin": True
 		})
 
