@@ -165,9 +165,10 @@ class GremlinsHighlighterListener(sublime_plugin.EventListener):
 # currently under the user's cursor.
 class GremlinsNamerListener(sublime_plugin.EventListener):
 	def name_current_gremlin(self, view):
-		view.window().run_command('gremlins_name_current', {
-			"clearStatusIfNotGremlin": True
-		})
+		if view.window():
+			view.window().run_command('gremlins_name_current', {
+				"clearStatusIfNotGremlin": True
+			})
 
 	def on_activated_async(self, view):
 		self.name_current_gremlin(view)
