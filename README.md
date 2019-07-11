@@ -31,3 +31,7 @@ Sublime Gremlins adds a couple of items to the bottom of Sublime's Find menu:
 Sublime Gremlins doesn't add any key bindings by default, but it does provide some example key bindings so [you can add your own](http://docs.sublimetext.info/en/latest/reference/key_bindings.html) if you want.
 
 Open the list of example key bindings by selecting **Preferences ▸ Package Settings ▸ Gremlins ▸ Example Key Bindings** from the menu, then copy any key bindings you'd like to use into your personal key bindings file!
+
+### Gremlin color
+
+To change the color of the Gremlin, edit your color scheme's `invalid` _foreground_ property.
