@@ -51,6 +51,9 @@ def cursor_position(view):
 def char_at_cursor(view):
 	return view.substr(cursor_position(view))
 
+def settings():
+	return sublime.load_settings('Gremlins.sublime-settings')
+
 '''
 ---------------------------------------------------------------------
 Commands
@@ -98,7 +101,7 @@ class GremlinsHighlightAllCommand(GremlinsBaseFindCommand):
 		self.view.add_regions(
 			REGIONS_KEY,
 			self.find_all_gremlins(),
-			'invalid',
+			settings().get('gremlins_region_scope', 'invalid'),
 			GUTTER_ICON,
 			sublime.DRAW_NO_FILL
 		)

@@ -1,0 +1,8 @@
+{
+	// Scope used to colorize the gutter icon and highlight.
+	// Available scopes depend on your active color scheme.
+	// Scopes here should be available in all color schemes:
+	// https://www.sublimetext.com/docs/3/scope_naming.html
+	// Your own color scheme may provide additional scopes.
+	"gremlins_region_scope": "invalid"
+}

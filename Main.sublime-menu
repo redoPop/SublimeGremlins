@@ -26,6 +26,14 @@
 						"caption": "Gremlins",
 						"children": [
 							{
+								"caption": "Settings",
+								"command": "edit_settings",
+								"args": {
+									"base_file": "Gremlins.sublime-settings",
+									"default": "// Settings in here override those in \"Gremlins.sublime-settings\"\n{\n\t$0\n}\n"
+								}
+							},
+							{
 								"caption": "Key Bindings",
 								"command": "edit_settings",
 								"args": {
