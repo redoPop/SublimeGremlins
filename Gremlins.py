@@ -132,12 +132,6 @@ class GremlinsNameCurrentCommand(sublime_plugin.WindowCommand):
 		self.last_named_position = position
 		view.set_status(STATUS_KEY, message)
 
-# Open a file relative to the Gremlins package directory
-class GremlinsOpenFile(sublime_plugin.ApplicationCommand):
-	def run(self, **args):
-		args['file'] = '${packages}/' + PACKAGE_DIR + '/' + args.get('file')
-		sublime.active_window().run_command('open_file', args)
-
 '''
 ---------------------------------------------------------------------
 Listeners
