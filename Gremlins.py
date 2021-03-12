@@ -135,6 +135,23 @@ class GremlinsNameCurrentCommand(sublime_plugin.WindowCommand):
 		self.last_named_position = position
 		view.set_status(STATUS_KEY, message)
 
+# Edit the key bindings file
+class GremlinsEditKeyBindingsCommand(sublime_plugin.WindowCommand):
+	def run(self):
+		self.window.run_command('edit_settings', {
+			'base_file': '${packages}/' + PACKAGE_DIR + '/Example.sublime-keymap',
+			'user_file': '${packages}/User/Default (${platform}).sublime-keymap',
+			'default': '[\n\t$0\n]\n',
+		})
+
+# Edit the settings file
+class GremlinsEditSettingsCommand(sublime_plugin.WindowCommand):
+	def run(self):
+		self.window.run_command('edit_settings', {
+			'base_file': '${packages}/' + PACKAGE_DIR + '/Gremlins.sublime-settings',
+			'default': '// Settings in here override those in "Gremlins.sublime-settings"\n{\n\t$0\n}\n',
+		})
+
 '''
 ---------------------------------------------------------------------
 Listeners

@@ -27,20 +27,11 @@
 						"children": [
 							{
 								"caption": "Settings",
-								"command": "edit_settings",
-								"args": {
-									"base_file": "Gremlins.sublime-settings",
-									"default": "// Settings in here override those in \"Gremlins.sublime-settings\"\n{\n\t$0\n}\n"
-								}
+								"command": "gremlins_edit_settings"
 							},
 							{
 								"caption": "Key Bindings",
-								"command": "edit_settings",
-								"args": {
-									"base_file": "Example.sublime-keymap",
-									"user_file": "${packages}/User/Default (${platform}).sublime-keymap",
-									"default": "[\n\t$0\n]\n"
-								}
+								"command": "gremlins_edit_key_bindings"
 							}
 						]
 					}
