@@ -32,6 +32,7 @@ SPACEY_GREMLINS = str.join('', [
 ])
 
 ALL_GREMLINS = (SPACELESS_GREMLINS + SPACEY_GREMLINS)
+ALL_GREMLINS_EX = '[' + ALL_GREMLINS + ']+'
 ALL_GREMLINS_RE = re.compile('^[' + ALL_GREMLINS + ']$')
 
 PACKAGE_DIR = os.path.splitext(os.path.basename(os.path.dirname(__file__)))[0]
@@ -54,6 +55,18 @@ def char_at_cursor(view):
 def settings():
 	return sublime.load_settings('Gremlins.sublime-settings')
 
+def find_all_gremlins(view):
+	return view.find_all(ALL_GREMLINS_EX)
+
+def highlight_all_gremlins(view):
+	view.add_regions(
+		REGIONS_KEY,
+		find_all_gremlins(view),
+		settings().get('gremlins_region_scope', 'invalid'),
+		GUTTER_ICON,
+		sublime.DRAW_NO_FILL
+	)
+
 '''
 ---------------------------------------------------------------------
 Commands
@@ -61,13 +74,11 @@ Commands
 
 # Abstract base class for gremlin-finding commands
 class GremlinsBaseFindCommand(sublime_plugin.TextCommand):
-	all_gremlins_expr = '[' + ALL_GREMLINS + ']+'
-
 	def find_all_gremlins(self):
-		return self.view.find_all(self.all_gremlins_expr)
+		return find_all_gremlins(self.view)
 
 	def find_next_gremlin(self, from_position):
-		region = self.view.find(self.all_gremlins_expr, from_position)
+		region = self.view.find(ALL_GREMLINS_EX, from_position)
 		if (not region and from_position):
 			region = self.find_next_gremlin(0)
 		return region
@@ -98,13 +109,7 @@ class GremlinsFindNextCommand(GremlinsBaseFindCommand):
 # Highlight all the gremlins in the current view.
 class GremlinsHighlightAllCommand(GremlinsBaseFindCommand):
 	def run(self, edit):
-		self.view.add_regions(
-			REGIONS_KEY,
-			self.find_all_gremlins(),
-			settings().get('gremlins_region_scope', 'invalid'),
-			GUTTER_ICON,
-			sublime.DRAW_NO_FILL
-		)
+		highlight_all_gremlins(self.view)
 
 # Use the status bar to show the name of whichever character
 # is currently under the user's cursor.
@@ -161,7 +166,7 @@ Listeners
 class GremlinsHighlighterListener(sublime_plugin.EventListener):
 	def highlight_all_gremlins(self, view):
 		if view.size() <= MAX_DOC_SIZE:
-			view.run_command('gremlins_highlight_all')
+			highlight_all_gremlins(view)
 
 	def on_activated_async(self, view):
 		self.highlight_all_gremlins(view)
