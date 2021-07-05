@@ -1,7 +1,7 @@
 # Sublime Gremlins
 A **Sublime Text 3** plugin to help identify invisible and ambiguous Unicode whitespace characters (zero width spaces, no-break spaces, and similar.) I call these characters gremlins, and Sublime Gremlins highlights them in the following ways:
 
-![](https://github.com/redoPop/SublimeGremlins/raw/master/doc-images/screenshot.png)
+![](doc-images/screenshot.png)
 
 1. The line containing the character is marked in the gutter.
 2. A colored border marks the character within the line.
