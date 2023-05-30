@@ -13,6 +13,8 @@ Globals
 SPACELESS_GREMLINS = str.join('', [
 	'\u007F-\u009F',
 	'\u00AD',
+	'\u061C',
+	'\u180E',
 	'\u200B-\u200F',
 	'\u2028-\u202E',
 	'\u2060-\u206F',
@@ -24,6 +26,7 @@ SPACELESS_GREMLINS = str.join('', [
 # Dodgy ~single-ish spaces
 SPACEY_GREMLINS = str.join('', [
 	'\u00A0',
+	'\u1680',
 	'\u2000-\u200A',
 	'\u202F',
 	'\u205F',
